@@ -9,7 +9,7 @@
 #import "MLViewController.h"
 
 @interface MLViewController ()
-
+@property (nonatomic, weak) IBOutlet UIView *tagView;
 @end
 
 @implementation MLViewController
@@ -20,10 +20,11 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)didTapMoveButton:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [UIView animateWithDuration:.2 animations:^{
+        _tagView.center = (CGPoint){_tagView.center.x, _tagView.center.y-40};
+    }];
 }
 
 @end
